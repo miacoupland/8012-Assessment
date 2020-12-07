@@ -1,0 +1,509 @@
+"C:\Program Files\AdoptOpenJDK\jdk-11.0.8.10-hotspot\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.3\lib\idea_rt.jar=55911:C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.3\bin" -Dfile.encoding=UTF-8 -classpath "C:\Users\miaco\IdeaProjects\8012 Assessment\out\production\8012 Assessment" Main
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+b
+
+You have selected to display all books in the library.
+finite transition systems, andre arnold
+java gently, judith bishop
+concurrent programming, stephen j. hartley
+petri nets, wolfgang reisig
+concurrent programming, c. r. snow
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+u
+
+You have selected to display all user information.
+zoe brown currently has 0 book[s]
+anna smith currently has 0 book[s]
+john smith currently has 0 book[s]
+john williams currently has 0 book[s]
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+i
+
+You have selected to update stored data when a book is issued to a user.
+
+What is the title of the book being issued?
+finite transition systems
+
+What is the name of the author?
+andre arnold
+
+What is the user's name?
+zoe brown
+
+Successfully withdrawn!
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+u
+
+You have selected to display all user information.
+zoe brown currently has 1 book[s]:
+	finite transition systems, andre arnold
+anna smith currently has 0 book[s]
+john smith currently has 0 book[s]
+john williams currently has 0 book[s]
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+i
+
+You have selected to update stored data when a book is issued to a user.
+
+What is the title of the book being issued?
+concurrent programming
+
+What is the name of the author?
+c. r. snow
+
+What is the user's name?
+zoe brown
+
+Successfully withdrawn!
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+i
+
+You have selected to update stored data when a book is issued to a user.
+
+What is the title of the book being issued?
+concurrent programming
+
+What is the name of the author?
+stephen j. hartley
+
+What is the user's name?
+zoe brown
+
+Successfully withdrawn!
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+u
+
+You have selected to display all user information.
+zoe brown currently has 3 book[s]:
+	finite transition systems, andre arnold:
+	concurrent programming, stephen j. hartley:
+	concurrent programming, c. r. snow
+anna smith currently has 0 book[s]
+john smith currently has 0 book[s]
+john williams currently has 0 book[s]
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+i
+
+You have selected to update stored data when a book is issued to a user.
+
+What is the title of the book being issued?
+java gently
+
+What is the name of the author?
+judith bishop
+
+What is the user's name?
+john smith
+
+Successfully withdrawn!
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+u
+
+You have selected to display all user information.
+zoe brown currently has 3 book[s]:
+	finite transition systems, andre arnold:
+	concurrent programming, stephen j. hartley:
+	concurrent programming, c. r. snow
+anna smith currently has 0 book[s]
+john smith currently has 1 book[s]:
+	java gently, judith bishop
+john williams currently has 0 book[s]
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+i
+
+You have selected to update stored data when a book is issued to a user.
+
+What is the title of the book being issued?
+petri nets
+
+What is the name of the author?
+wolfgang reisig
+
+What is the user's name?
+zoe brown
+
+This user has too many books. Please ask them to return one in order to withdraw another.
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+u
+
+You have selected to display all user information.
+zoe brown currently has 3 book[s]:
+	finite transition systems, andre arnold:
+	concurrent programming, stephen j. hartley:
+	concurrent programming, c. r. snow
+anna smith currently has 0 book[s]
+john smith currently has 1 book[s]:
+	java gently, judith bishop
+john williams currently has 0 book[s]
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+r
+
+You have selected to update stored data when a user returns a book to the library.
+
+Enter the user's name.
+zoe brown
+
+Enter the title of the returned book.
+concurrent programming
+
+Enter the name of the author
+c. r. snow
+
+Book returned!
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+u
+
+You have selected to display all user information.
+zoe brown currently has 2 book[s]:
+	finite transition systems, andre arnold:
+	concurrent programming, stephen j. hartley
+anna smith currently has 0 book[s]
+john smith currently has 1 book[s]:
+	java gently, judith bishop
+john williams currently has 0 book[s]
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+i
+
+You have selected to update stored data when a book is issued to a user.
+
+What is the title of the book being issued?
+java gently
+
+What is the name of the author?
+judith bishop
+
+What is the user's name?
+zoe brown
+
+User reminder added to file.
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+i
+
+You have selected to update stored data when a book is issued to a user.
+
+What is the title of the book being issued?
+finite transition systems
+
+What is the name of the author?
+andre arnold
+
+What is the user's name?
+anna smith
+
+User reminder added to file.
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+u
+
+You have selected to display all user information.
+zoe brown currently has 2 book[s]:
+	finite transition systems, andre arnold:
+	concurrent programming, stephen j. hartley
+anna smith currently has 0 book[s]
+john smith currently has 1 book[s]:
+	java gently, judith bishop
+john williams currently has 0 book[s]
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+i
+
+You have selected to update stored data when a book is issued to a user.
+
+What is the title of the book being issued?
+invalid title
+
+What is the name of the author?
+c. r. snow
+
+What is the user's name?
+anna smith
+
+Book not found. Please check your spelling
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+i
+
+You have selected to update stored data when a book is issued to a user.
+
+What is the title of the book being issued?
+concurrent programming
+
+What is the name of the author?
+invalid author
+
+What is the user's name?
+anna smith
+
+Book not found. Please check your spelling
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+i
+
+You have selected to update stored data when a book is issued to a user.
+
+What is the title of the book being issued?
+concurrent programming
+
+What is the name of the author?
+c. r. snow
+
+What is the user's name?
+invalid user
+
+User not found. Please check your spelling!
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+u
+
+You have selected to display all user information.
+zoe brown currently has 2 book[s]:
+	finite transition systems, andre arnold:
+	concurrent programming, stephen j. hartley
+anna smith currently has 0 book[s]
+john smith currently has 1 book[s]:
+	java gently, judith bishop
+john williams currently has 0 book[s]
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+r
+
+You have selected to update stored data when a user returns a book to the library.
+
+Enter the user's name.
+invalid user
+
+Enter the title of the returned book.
+finite transition systems
+
+Enter the name of the author
+andre arnold
+
+User not found. Please check your spelling!
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+r
+
+You have selected to update stored data when a user returns a book to the library.
+
+Enter the user's name.
+zoe brown
+
+Enter the title of the returned book.
+invalid title
+
+Enter the name of the author
+andre arnold
+
+Book not found. Please check your spelling!
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+r
+
+You have selected to update stored data when a user returns a book to the library.
+
+Enter the user's name.
+zoe brown
+
+Enter the title of the returned book.
+finite transition systems
+
+Enter the name of the author
+invalid author
+
+Book not found. Please check your spelling!
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+invalid input
+
+Invalid choice, please try again.
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+u
+
+You have selected to display all user information.
+zoe brown currently has 2 book[s]:
+	finite transition systems, andre arnold:
+	concurrent programming, stephen j. hartley
+anna smith currently has 0 book[s]
+john smith currently has 1 book[s]:
+	java gently, judith bishop
+john williams currently has 0 book[s]
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+r
+
+You have selected to update stored data when a user returns a book to the library.
+
+Enter the user's name.
+john smith
+
+Enter the title of the returned book.
+java gently
+
+Enter the name of the author
+judith bishop
+
+Book returned!
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+u
+
+You have selected to display all user information.
+zoe brown currently has 2 book[s]:
+	finite transition systems, andre arnold:
+	concurrent programming, stephen j. hartley
+anna smith currently has 0 book[s]
+john smith currently has 0 book[s]
+john williams currently has 0 book[s]
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+r
+
+You have selected to update stored data when a user returns a book to the library.
+
+Enter the user's name.
+john smith
+
+Enter the title of the returned book.
+java gently
+
+Enter the name of the author
+judith bishop
+
+Book not found. Please check your spelling!
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+u
+
+You have selected to display all user information.
+zoe brown currently has 2 book[s]:
+	finite transition systems, andre arnold:
+	concurrent programming, stephen j. hartley
+anna smith currently has 0 book[s]
+john smith currently has 0 book[s]
+john williams currently has 0 book[s]
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+b
+
+You have selected to display all books in the library.
+finite transition systems, andre arnold
+java gently, judith bishop
+concurrent programming, stephen j. hartley
+petri nets, wolfgang reisig
+concurrent programming, c. r. snow
+f - to finish running the program.
+b - to display on the screen the information about all the books in the library.
+u - to display on the screen the information about all the users.
+i - to update the stored data when a book is issued to a user.
+r - to update the stored data when a user returns a book to the library.
+f
+
+Program is ending...
+
+Process finished with exit code 0

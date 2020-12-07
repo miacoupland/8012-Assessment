@@ -1,23 +1,52 @@
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+//all user input and output
 public class IO extends Exception {
-    private Scanner scanner;
-    private Reader reader;
-    private Writer libraryWriter;
-    private Writer outputWriter;
+    private final Scanner scanner;
+    private static FileWriter writer; //static so library can access writer method
+    private Library library;
+
 
     IO() throws IOException {
         scanner = new Scanner(System.in);
-        reader = new Reader();
-        libraryWriter = new Writer("Book Requests.txt");
-        outputWriter = new Writer("Output.txt");
+        this.library = new Library();
     }
 
+    public void read() throws FileNotFoundException {
+        String inputFile = "src/example.txt";
+
+        try {
+            Scanner inFile = new Scanner(new FileReader(inputFile));
+            while (inFile.hasNextLine()) {
+                //while the file has another line, get the first line which is the amount of books
+                int bookCount = Integer.valueOf(inFile.nextLine());
+                //for every two lines and for the number specified above, look for title and author
+                for (int i = 0; i < bookCount; i++) {
+                    String title = inFile.nextLine().toLowerCase();
+                    String authorName = inFile.nextLine().toLowerCase();
+                    library.getBooks().sortAdd(new Book(title, authorName));
+                }
+
+                int userCount = Integer.valueOf(inFile.nextLine());
+                //after first loop, look for user count, then find their full name
+                for (int i = 0; i < userCount; i++) {
+                    String[] fullName = inFile.nextLine().toLowerCase().split(" ");
+                    library.getUsers().sortAdd(new User(fullName[0], fullName[1]));
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+    //menu functionality
     public void run() throws IOException {
-        reader.read();
+        read();//import list of books and users before running menu
         while (true) {
             System.out.println("f - to finish running the program.\n" +
                     "b - to display on the screen the information about all the books" +
@@ -25,46 +54,29 @@ public class IO extends Exception {
                     "u - to display on the screen the information about all the users.\n" +
                     "i - to update the stored data when a book is issued to a user.\n" +
                     "r - to update the stored data when a user returns a book to the library.");
-
             String input = scanner.nextLine();
             switch (input) {
-                case "f":
+                case "f": //finish
                     System.out.println("\nProgram is ending...");
+                    //writer.close();
                     System.exit(0); //exit program with no error
-                case "b":
+                case "b": //see books. quite small functionality so did not seem worth adding another method?
                     System.out.println("\nYou have selected to display all books in the library.");
-                    for (Book book: reader.getBooks()) {
+                    for (Book book: library.getBooks()) {//sort functionality inside reader.getBooks()
                         System.out.println(book.toString());
                     }
                     break;
-                case "u":
+                case "u": //see users. Same case as see books
                     System.out.println("\nYou have selected to display all user information.");
-                    for (User user : reader.getUsers()) {
+                    for (User user : library.getUsers()) {//sort functionality inside reader.getUsers()
                         System.out.println(user.toString());
                     }
                     break;
-                case "i":
-                    System.out.println("\nYou have selected to update stored data when a book is issued to a user.");
-                    System.out.println("\nWhat is the title of the book being issued?");
-                    String title = scanner.nextLine();
-                    System.out.println(("\nWhat is the name of the author?"));
-                    String author = scanner.nextLine();
-                    System.out.println("\nWhat is the user's name?");
-                    String name = scanner.nextLine();
-
-                    if (availableBook(title, author, name)) {
-                        System.out.println("\nSuccessfully withdrawn!");
-                    }
-                    //go to that book, see if it is withdrawn. If false, go to the user
-                    //see if they have 3 books, and if not, then say they have the book
+                case "i": //issue book to a user
+                    issueBook();
                     break;
-                case "r":
-                    System.out.println("\nYou have selected to update stored data when a user returns a book to the library.");
-                    System.out.println("\nEnter the user's name.");
-                    String userName = scanner.nextLine();
-                    System.out.println("\nEnter the title of the returned book.");
-                    String bookTitle = scanner.nextLine();
-                    returnBook(userName, bookTitle);
+                case "r": //return
+                    returnBook();
                     break;
                 default:
                     System.out.println("\nInvalid choice, please try again.");
@@ -72,82 +84,42 @@ public class IO extends Exception {
         }
     }
 
-    public Boolean availableBook(String book, String author, String user) {
+    public void issueBook() {
+        System.out.println("\nYou have selected to update stored data when a book is issued to a user.");
+        System.out.println("\nWhat is the title of the book being issued?");
+        String title = scanner.nextLine();
+        System.out.println(("\nWhat is the name of the author?"));
+        String author = scanner.nextLine();
+        System.out.println("\nWhat is the user's name?");
+        String name = scanner.nextLine();
+        if (library.availableBook(title, author, name)) {
+            System.out.println("\nSuccessfully withdrawn!");
+        }
+    }
+
+    public void returnBook() {
+        System.out.println("\nYou have selected to update stored data when a user returns a book to the library.");
+        System.out.println("\nEnter the user's name.");
+        String userName = scanner.nextLine();
+        System.out.println("\nEnter the title of the returned book.");
+        String bookTitle = scanner.nextLine();
+        System.out.println("\nEnter the name of the author");
+        String authorName = scanner.nextLine();
+        if (library.returnBook(userName, bookTitle, authorName)) {
+            System.out.println("\nBook returned!"); //confirm to the user the book has been returned
+        }
+    }
+
+    //writing to the file, text from library. static so it's accessible
+    public static void writeToFile(String text) throws IOException {
         try {
-            for (Book b: reader.getBooks()) {
-                if (b.getAuthor().equals(author)) {
-                    if (b.getTitle().equals(book)) {
-                        if (b.getIsWithdrawn()) {
-                            bookIsTaken(b);
-                            System.out.println("\nBook has already been withdrawn! A message has been sent to the user.");
-                            return false;
-                        } else {
-                            for (User u: reader.getUsers()) {
-                                if (u.getFullName().equals(user)) {
-                                    if (u.getBookCount() >= 3) {
-                                        return false;
-                                    } else {
-                                        u.addBook(b);
-                                        b.withdraw();
-                                        return true;
-                                    }
-                                }
-                            }
-                            throw new UserNotFoundException();
-                        }
-                    }
-                }
-            }
-            throw new BookNotFoundException();
-        } catch (BookNotFoundException b) {
-            System.out.println("\nBook not found. Please check your spelling");
-        } catch (UserNotFoundException u) {
-            System.out.println("\nUser not found. Please check your spelling!");
-        }
-        return false;
-    }
-
-    public Boolean returnBook(String userName, String bookTitle) {
-        for (User user: reader.getUsers()) { //checks each user in the list
-            if (user.getFullName().equals(userName)) { //checks if the user is the correct one
-                for (Book b : user.getBooksHeld()) { //if correct user, check for the book existing in their held books
-                    if (b.getTitle().equals(bookTitle)) { //if it exists
-                        for (Book b2: reader.getBooks()) { //look for the book in the full book list
-                            if (b2.getTitle().equals(bookTitle)) { //if it exists in both places, return the book
-                                b.returnBook();
-                                user.removeBook(b2.getTitle()); //remove book from user's possession
-                                System.out.println("\nBook returned!"); //confirm to the user the book has been returned
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    public void bookIsTaken(Book b) {
-        for (User u : reader.getUsers()) {
-            if (u.getBooksHeld().contains(b)) {
-                libraryWriter.writeToFile("Dear " + u.getFullName() + ", \nPlease return" +
-                        " your copy of the book " + b.getTitle() + " by " +
-                        b.getAuthor() + " as soon as possible, because another " +
-                        "user has requested this title.");
-            }
+            writer = new FileWriter("Book Requests.txt", true);//write to this file for return book requests
+            writer.write(text);
+            writer.close();
+            System.out.println("\nUser reminder added to file.");
+        } catch (IOException e) {
+            System.out.println("\nAn error occurred writing to the file");
+            e.printStackTrace();
         }
     }
-
-    public class BookNotFoundException extends Throwable {
-
-    }
-
-    public class AuthorNotFoundException extends Throwable {
-
-    }
-
-    public class UserNotFoundException extends Throwable {
-
-    }
-
 }

@@ -1,17 +1,14 @@
-import java.util.ArrayList;
-
-public class User {
-
-    private String firstName;
-    private String surname;
+public class User implements Comparable<User> {
+    private final String firstName;
+    private final String surname;
     private int bookCount;
-    private ArrayList<Book> booksHeld;
+    private SortedArrayList<Book> booksHeld;
 
     User(String firstName, String surname) {
         this.firstName = firstName;
         this.surname = surname;
         this.bookCount = 0;
-        this.booksHeld = new ArrayList<>();
+        this.booksHeld = new SortedArrayList<>();
     }
 
     public String getFirstName() {
@@ -30,8 +27,42 @@ public class User {
         return this.bookCount;
     }
 
-    public ArrayList<Book> getBooksHeld() {
-        return this.booksHeld;
+    public SortedArrayList<Book> getBooksHeld() {
+        return booksHeld;
+    }
+
+    public Boolean removeBook(String bookTitle, String author) {
+        if (bookCount > 0) {
+            for (Book book: booksHeld) {
+                if (book.getTitle().equals(bookTitle) && book.getAuthor().equals(author)) {
+                    this.booksHeld.remove(book);
+                    bookCount--;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void addBook(Book book) {
+        if (this.bookCount < 3) {
+            this.booksHeld.sortAdd(book);
+            bookCount++;
+        }
+    }
+
+    @Override
+    public int compareTo(User o) {
+        if (this.getSurname().compareTo(o.getSurname()) > 0) {
+            return 1;
+        } else if (this.getSurname().equals(o.getSurname())){
+            if (this.getFirstName().compareTo(o.getFirstName()) > 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+        return -1;
     }
 
     @Override
@@ -47,30 +78,18 @@ public class User {
                 + withdrawn;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public Boolean removeBook(String bookTitle) {
-        if (bookCount > 0) {
-            for (Book book: booksHeld) {
-                if (book.getTitle().equals(bookTitle)) {
-                    this.booksHeld.remove(book);
-                    bookCount--;
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public void addBook(Book book) {
-        this.booksHeld.add(book);
-        bookCount++;
+    public static void main(String[] args) {
+        //main here for testing purposes
+        User u1 = new User("Sergio", "Aguero");
+        Book b1 = new Book("Born to Rise", "Sergio Aguero");
+        System.out.println("This user has " + u1.getBookCount() + " book[s]");
+        u1.addBook(b1);
+        System.out.println("This user has " + u1.getBookCount() + " book[s]: " + u1.getBooksHeld());
+        System.out.println(u1.getFirstName() + " " + u1.getSurname() + " has " + u1.getBookCount() + " book[s]");
+        System.out.println(u1.toString());
+        u1.removeBook("Born to Rise", "Sergio Aguero");
+        System.out.println(u1.toString());
+        u1.removeBook("invalid title", "Sergio Aguero");//shouldn't work
     }
 }
 //ADD ERROR IN WHERE A USER HAS MORE THAN THREE BOOKS AND THEY MUST RETURN IT
